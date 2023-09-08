@@ -80,8 +80,7 @@ export function Home() {
     if (latitude && longitude) {
       const data = await api.getEmptySpots(longitude, latitude)
       setParkingData(data)
-      console.log(parkingData)
-
+      console.log(data)
     }
   }
 

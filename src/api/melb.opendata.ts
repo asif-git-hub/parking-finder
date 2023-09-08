@@ -18,13 +18,13 @@ export class MelbOpenDataApi {
     longitude: number,
     latitude: number,
     rows: number = 5,
-    radiusInKm: number = 1
+    radiusInKm: number = 250
   ): Promise<MelbOpenDataParkingResponse> {
     console.log("getEmptySpots() called", { longitude, latitude, radiusInKm })
     const status = StatusDescription.UNOCCUPIED
 
     const q = `q=status_description: ${status}`
-    const where = `where=within_distance(location, GEOM'POINT(${latitude} ${longitude})', ${radiusInKm}km`
+    const where = `where=within_distance(location, GEOM'POINT(${latitude} ${longitude})', ${radiusInKm}m`
 
     const url = `${this.rootUrl}&rows=${rows}&${q}&${where}`
 
